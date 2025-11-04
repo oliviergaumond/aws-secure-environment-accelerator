@@ -444,7 +444,7 @@ export class ResourceMapping {
     const resourceFilePath = s3Prefix;
     const resourceFileCSV = this.convertToCSV(resourceMap);
     for (const resource of driftDetectionResources) {
-      if (resource.DriftStatus === 'MODIFIED') {
+      if (resource.DriftStatus === 'MODIFIED' || resource.DriftStatus === 'DELETED') {
         this.driftedResources.push({
           Account: accountId,
           Region: region,
